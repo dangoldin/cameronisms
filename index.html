@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sound Buttons</title>
+    <script>
+      // Function to play sound. It takes the sound file name as a parameter.
+      function playSound(soundFileName) {
+        const audio = new Audio(soundFileName);
+        audio.play();
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="playSound('zomg.m4a')">Zomg</button>
+    <button onclick="playSound('drat.m4a')">Drat</button>
+    <button onclick="playSound('enjoyed-immensely.m4a')">Enjoyed</button>
+    <button onclick="playSound('extravagant.m4a')">Extravagant</button>
+    <button onclick="playSound('flabbergasted-deploy-worked.m4a')">
+      Flabbergasted
+    </button>
+    <button onclick="playSound('funniest.m4a')">Funniest</button>
+    <button onclick="playSound('genius.m4a')">Genius</button>
+    <button onclick="playSound('idempotent.m4a')">Idempotent</button>
+    <button onclick="playSound('my-goodness-column-order.m4a')">
+      My goodness, column order
+    </button>
+    <button onclick="playSound('my-goodness-it-worked.m4a')">
+      My goodness, it worked
+    </button>
+    <button onclick="playSound('son-of-a-gun.m4a')">Son of a gun</button>
+    <button onclick="playSound('worked-ssh.m4a')">Worked SSH</button>
+    <button onclick="playSound('wow.m4a')">Wow</button>
+  </body>
+</html>
