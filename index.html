@@ -2,34 +2,114 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Sound Buttons</title>
+    <title>Cameronisms</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(
+          4,
+          1fr
+        ); /* Adjust the number of columns here */
+        gap: 10px; /* Space between buttons */
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: auto;
+      }
+      button {
+        cursor: pointer;
+        font-size: 16px;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
     <script>
+      var sounds = [
+        "extravagant.m4a",
+        "immensely.m4a",
+        "idempotent.m4a",
+        "funniest.m4a",
+        "ssh.m4a",
+        "gun.m4a",
+        "wow.m4a",
+        "zomg.m4a",
+        "drat.m4a",
+        "worked.m4a",
+        "worked.m4a",
+        "order.m4a",
+        "genius.m4a",
+      ];
+
       // Function to play sound. It takes the sound file name as a parameter.
       function playSound(soundFileName) {
         const audio = new Audio(soundFileName);
         audio.play();
       }
+
+      function playRandomSound() {
+        const randomIndex = Math.floor(Math.random() * sounds.length);
+        playSound(sounds[randomIndex]);
+      }
+
+      function playOverload() {
+        // Pick a number of radom sounds to play
+        const numberOfSounds = 4 + Math.floor(Math.random() * 6) + 1;
+        console.log(numberOfSounds);
+        for (let i = 0; i < numberOfSounds; i++) {
+          const randomIndex = Math.floor(Math.random() * sounds.length);
+          setTimeout(() => {
+            playSound(sounds[randomIndex]);
+          }, i * 500);
+        }
+      }
+
+      function keepPlayingSounds() {
+        playOverload();
+        setTimeout(keepPlayingSounds, 5000);
+      }
     </script>
   </head>
   <body>
-    <button onclick="playSound('zomg.m4a')">Zomg</button>
-    <button onclick="playSound('drat.m4a')">Drat</button>
-    <button onclick="playSound('enjoyed-immensely.m4a')">Enjoyed</button>
-    <button onclick="playSound('extravagant.m4a')">Extravagant</button>
-    <button onclick="playSound('flabbergasted-deploy-worked.m4a')">
-      Flabbergasted
-    </button>
-    <button onclick="playSound('funniest.m4a')">Funniest</button>
-    <button onclick="playSound('genius.m4a')">Genius</button>
-    <button onclick="playSound('idempotent.m4a')">Idempotent</button>
-    <button onclick="playSound('my-goodness-column-order.m4a')">
-      My goodness, column order
-    </button>
-    <button onclick="playSound('my-goodness-it-worked.m4a')">
-      My goodness, it worked
-    </button>
-    <button onclick="playSound('son-of-a-gun.m4a')">Son of a gun</button>
-    <button onclick="playSound('worked-ssh.m4a')">Worked SSH</button>
-    <button onclick="playSound('wow.m4a')">Wow</button>
+    <div class="container">
+      <button onclick="playSound('zomg.m4a')">Zomg</button>
+      <button onclick="playSound('drat.m4a')">Drat</button>
+      <button onclick="playSound('enjoyed-immensely.m4a')">Enjoyed</button>
+      <button onclick="playSound('extravagant.m4a')">Extravagant</button>
+      <button onclick="playSound('flabbergasted-deploy-worked.m4a')">
+        Flabbergasted
+      </button>
+      <button onclick="playSound('funniest.m4a')">Funniest</button>
+      <button onclick="playSound('genius.m4a')">Genius</button>
+      <button onclick="playSound('idempotent.m4a')">Idempotent</button>
+      <button onclick="playSound('my-goodness-column-order.m4a')">
+        My goodness, column order
+      </button>
+      <button onclick="playSound('my-goodness-it-worked.m4a')">
+        My goodness, it worked
+      </button>
+      <button onclick="playSound('son-of-a-gun.m4a')">Son of a gun</button>
+      <button onclick="playSound('worked-ssh.m4a')">Worked SSH</button>
+      <button onclick="playSound('wow.m4a')">Wow</button>
+      <button onclick="playRandomSound()">Surprise me</button>
+      <button onclick="playOverload()">Cameron Overload</button>
+      <button onclick="keepPlayingSounds()">Can't stop, won't stop</button>
+    </div>
   </body>
 </html>
